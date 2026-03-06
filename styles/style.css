@@ -1,5 +1,120 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  background-color: var(--cover-color);
+  background-image: var(--cover-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
+
+.header {
+  min-block-size: var(--min-header-heght);
+  block-size: 100vh;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  position: relative;
+}
+
+.header__theme-menu {
+  align-self: center;
+  justify-self: end;
+}
+
+.decoration-span {
+  display: block;
+  position: absolute;
+  top: var(--padding);
+  right: calc(var(--padding) + 10px);
+  color: var(--card-heading-text-color);
+  font-size: 18px;
+}
+ .decoration-span::after {
+  content: "";
+  display: inline-block;
+  margin-left: 5px;
+  block-size: 9px;
+  inline-size: 9px;
+  border-radius: 50%;
+  background-color: var(--card-heading-text-color);
+  align-self: center;
+  margin-bottom: 2px;
+  box-shadow: 0 0 4px 2px var(--card-heading-text-color);
+ }
+
+ /*НЕ ЗАБЫТЬ DISPLAY:NONE ДНЕМ! ПРОВЕИТЬ ДЯ НОЧИ И ПЕДПОЧТЕНИЙ*/
+
+
+ .header::before,
+ .footer::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  block-size: 25px;
+  inline-size: 25px;
+  border-bottom: 1px solid var(--card-heading-text-color);
+  border-left: 1px solid var(--card-heading-text-color);
+  bottom: var(--padding);
+  left: var(--padding);
+ }
+
+ .header::after,
+ .footer::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  block-size: 25px;
+  inline-size: 25px;
+  border-top: 1px solid var(--card-heading-text-color);
+  border-right: 1px solid var(--card-heading-text-color);
+  top: var(--padding);
+  right: var(--padding);
+ }
+
+ .header__theme-menu-button {
+  background-color: transparent;
+  color: var(--card-heading-text-color);
+  border: none;
+ }
+
+ .header__theme-menu-button_active {
+  border: 1px solid var(--card-heading-text-color);
+ }
+
+.main-heading-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-self: center;
+  justify-self: start;
+}
+/*сделал загоовок гридбоксом, буду менять коичество строк на азнх эканах*/
+
+.main-heading {
+  font-size: var(--main-heading-font-size);
+  color: var(--main-heading-font-color);
+  text-shadow: 4px 4px var(--card-heading-text-color);
+  line-height: 83%;
+  font-weight: bold;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/*селектор задает стили и заголовку в футере*/
+
+.title-decor {
+  font-size: 18px;
+  background-color: var(--card-heading-text-color);
+  display: block;
+  align-self: center;
+  margin: 0 var(--padding);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--acent-text-color);
+  font-weight: bold;
+}
+
+
+ .footer {
+  position: relative;
+ }
