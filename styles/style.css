@@ -108,13 +108,87 @@
   background-color: var(--card-heading-text-color);
   display: block;
   align-self: center;
-  margin: 0 var(--padding);
+  margin: 0;
   font-family: "IBM Plex Mono", monospace;
   color: var(--acent-text-color);
   font-weight: bold;
 }
 
+.title-decor-special {
+  margin: var(--padding);
+}
 
- .footer {
+.section {
+  display: grid;
+  grid-auto-rows: min-content;
+  gap: var(--padding);
+  margin: var(--padding);;
+}
+
+.card {
+  list-style: none;
+  padding: 0;
+}
+
+.section-heading {
+  color: var(--card-heading-text-color);
+  font-weight: bold;
+}
+
+.sub-title-decor {
+  font-weight: 400;
+}
+
+.card:nth-child(n) {
+  color: var(--main-text-font-color);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+}
+/*использован псевдокласс чтобы не доббавлять класс всем текстовым блокам в html
+при добавлении абзацев фоматиование сохранится. 
+Заголовки имеют собственне стили, которые перебивают стили для n-th child*/
+
+.link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--card-heading-text-color);
+}
+
+.link,
+.header__theme-menu-button {
+  cursor: pointer;
+}
+
+.link:hover {
+  border-bottom: 2px solid var(--main-text-font-color);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--main-text-font-color);
+}
+
+.illustration {
+  display: grid;
+  width: max(100vw,355px);
+  grid-template-rows: repeat(autofit, minmax(355px, 1fr));
+}
+
+.image-container {
+  display: grid;
+  gap: var(--padding);
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+.footer {
+  min-block-size: var(--min-header-heght);
+  block-size: 100vh;
+  display: grid;
   position: relative;
- }
+  align-items: center;
+  justify-items: center;
+}
