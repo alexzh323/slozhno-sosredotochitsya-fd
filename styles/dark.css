@@ -5,8 +5,13 @@
 */
 
 :root.theme-dark {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --cover-image: url("../images/cover-image-dark.png");
+  --cover-color: rgb(2, 4, 15);
+  --card-heading-text-color: #FF0070;
+  --acent-color: #FF0070;
+  --acent-special-color: #FF0070;
+  --main-heading-font-color: #DB00FF;
+  --main-text-font-color: #F1B2CE;
+  --acent-text-color: #000028;
+  --element-hidden: inline-block;
 }

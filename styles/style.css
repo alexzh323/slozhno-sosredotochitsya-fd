@@ -26,24 +26,24 @@
 }
 
 .decoration-span {
-  display: block;
+  display: var(--element-hidden);
   position: absolute;
   top: var(--padding);
   right: calc(var(--padding) + 10px);
-  color: var(--card-heading-text-color);
+  color: var(--acent-color);
   font-size: 18px;
 }
  .decoration-span::after {
   content: "";
-  display: inline-block;
+  display: var(--element-hidden);
   margin-left: 5px;
   block-size: 9px;
   inline-size: 9px;
   border-radius: 50%;
-  background-color: var(--card-heading-text-color);
+  background-color: var(--acent-color);
   align-self: center;
   margin-bottom: 2px;
-  box-shadow: 0 0 4px 2px var(--card-heading-text-color);
+  box-shadow: 0 0 4px 2px var(--acent-color);
  }
 
  /*НЕ ЗАБЫТЬ DISPLAY:NONE ДНЕМ! ПРОВЕИТЬ ДЯ НОЧИ И ПЕДПОЧТЕНИЙ*/
@@ -101,7 +101,7 @@
 .main-heading {
   font-size: var(--main-heading-font-size);
   color: var(--main-heading-font-color);
-  text-shadow: 4px 4px var(--card-heading-text-color);
+  text-shadow: 4px 4px var(--acent-color);
   line-height: 83%;
   font-weight: bold;
   font-family: "IBM Plex Mono", monospace;
@@ -111,7 +111,7 @@
 
 .title-decor {
   font-size: 18px;
-  background-color: var(--card-heading-text-color);
+  background-color: var(--acent-color);
   display: block;
   align-self: center;
   margin: 0;
@@ -156,7 +156,7 @@
 
 .link {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--card-heading-text-color);
+  text-shadow: 2px 2px 0 var(--acent-color);
 }
 
 .link,
@@ -198,6 +198,13 @@
   position: relative;
   align-items: center;
   justify-items: center;
+}
+
+.special-text-sadow {
+  text-shadow: 2px 2px var(--acent-special-color);
+ /*отдельная переменная, цвет не меняется в других темах
+ переменная вместо статичного цвета исползуется для потенциалной гибкости дизайна.
+ Кроме того, тень менше, чем у подобного заголовка в хедере*/
 }
 
 @media (width >= 768px) {
