@@ -7,6 +7,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  z-index: -1;
   
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
@@ -82,6 +83,11 @@
 
  .header__theme-menu-button_active {
   border: 1px solid var(--card-heading-text-color);
+ }
+
+ .main,
+ .footer {
+  background-color: var(--cover-color);
  }
 
 .main-heading-container {
@@ -208,7 +214,7 @@
   }
   /*заголовок в 1 строчку*/
 
-    .title-decor-special {
+  .title-decor-special {
     inline-size: calc(50vw - var(--padding));
     justify-self: end;
   }
@@ -242,9 +248,8 @@
   
   .image-container {
     display: grid;
-  
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 25vh;
+    grid-auto-rows: 20vh;
     grid-auto-flow: dense;
   }
   .image-container :first-child {
@@ -270,7 +275,8 @@
     grid-column: span 2;
   }
 
-/*картинки в помежуточных решениях слетают. разобрраться  с тетисом!!!*/
+/*использовано dense для касивой сортиовки и nth-child для доступа к картинкам
+без создания 5-и уникалныых классов*/
 
 }
 
@@ -283,5 +289,11 @@
     display: flex;
     gap: 5vw;
     /*Доделать отступы сверху!!!*/
+  }
+
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--padding);
   }
 }
