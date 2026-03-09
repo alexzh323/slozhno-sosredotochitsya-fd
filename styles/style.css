@@ -8,7 +8,6 @@
   background-position: center;
   background-attachment: fixed;
   z-index: -1;
-  
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
 
@@ -20,10 +19,31 @@
   position: relative;
 }
 
-.header__theme-menu {
+.header__theme-menu-list {
+  display: grid;
+  gap: calc(var(--padding) * 2);
   align-self: center;
   justify-self: end;
+  padding-right: var(--padding);
 }
+
+.header__theme-menu-button:hover {
+  border-bottom: 2px solid var(--card-heading-text-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: 1px solid color-mix(
+    in srgb,
+    var(--card-heading-text-color) 40%,
+    var(--main-text-font-color)
+  );
+}
+/*смешиваем 2 цвета в опеделенной попорции согласно макету*/
+
 
 .decoration-span {
   display: var(--element-hidden);
@@ -33,6 +53,7 @@
   color: var(--acent-color);
   font-size: 18px;
 }
+
  .decoration-span::after {
   content: "";
   display: var(--element-hidden);
@@ -45,9 +66,7 @@
   margin-bottom: 2px;
   box-shadow: 0 0 4px 2px var(--acent-color);
  }
-
- /*НЕ ЗАБЫТЬ DISPLAY:NONE ДНЕМ! ПРОВЕИТЬ ДЯ НОЧИ И ПЕДПОЧТЕНИЙ*/
-
+/*display реализовал через переменную. Так проще будет работать со сменой тем*/
 
  .header::before,
  .footer::before {
@@ -61,6 +80,7 @@
   bottom: var(--padding);
   left: var(--padding);
  }
+ /*декоративные уголки переиспользую в футере*/
 
  .header::after,
  .footer::after {
@@ -85,18 +105,13 @@
   border: 1px solid var(--card-heading-text-color);
  }
 
- .main,
- .footer {
-  background-color: var(--cover-color);
- }
-
 .main-heading-container {
   display: grid;
   grid-template-rows: 1fr 1fr;
   align-self: center;
   justify-self: start;
 }
-/*сделал загоовок гридбоксом, буду менять коичество строк на азнх эканах*/
+/*сделал загоовок гридбоксом, буду менять коичество строк на широких экранах*/
 
 .main-heading {
   font-size: var(--main-heading-font-size);
@@ -104,37 +119,82 @@
   text-shadow: 4px 4px var(--acent-color);
   line-height: 83%;
   font-weight: bold;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex mono', monospace;
+  padding-left: var(--padding);
+  letter-spacing: 0.05em;
 }
 
-/*селектор задает стили и заголовку в футере*/
+/*селектор задает стили и заголовку в футере. Для нюансов форматования будет особый класс*/
 
 .title-decor {
   font-size: 18px;
   background-color: var(--acent-color);
   display: block;
+  inline-size: 100%;
   align-self: center;
   margin: 0;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex mono', monospace;
   color: var(--acent-text-color);
   font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 23.4px;
+}
+
+.header__theme-menu {
+  display: grid;
+  gap: var(--padding);
+  padding-right: var(--padding);
+  padding: var(--padding);
 }
 
 .title-decor-special {
-  margin: var(--padding);
+  display: flex;
+  flex-direction: column;
+  inline-size: auto;
+  margin: 0 var(--padding) calc(var(--padding) * 4) var(--padding);
 }
+/*использовал флексбокс для корректного переноса
+альтернатива в виде white-space: pre-line давала пустую область навеху блока*/
+
+ .main,
+ .footer {
+  background-color: var(--cover-color);
+ }
+
+ .main {
+  padding-top: 0;
+  display: grid;
+  gap: calc(var(--padding) *2);
+  
+ }
 
 .section {
   display: grid;
   grid-auto-rows: min-content;
-  gap: var(--padding);
-  margin: var(--padding);;
+  gap: calc(var(--padding) * 2);
+  margin: var(--padding);
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   padding: 0;
+  gap: var(--padding);
+  /*!!!*/
 }
+
+.card-gap {
+  display: grid;
+  gap: calc( var(--padding)*2);
+}
+/*!!!*/
+
+.title-reapeated-decor {
+  margin-bottom: calc(var(--padding) *2);
+}
+
+/*!!!*/
 
 .section-heading {
   color: var(--card-heading-text-color);
@@ -147,10 +207,15 @@
 
 .card:nth-child(n) {
   color: var(--main-text-font-color);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex mono', monospace;
+  font-size: 18px;
   font-weight: 400;
+  line-height: 23.4px;
+  letter-spacing: 0.05em;
+  /*в фигме указан letter-spacing: 0%. Однако с данным значением текст слньно съезжает,
+  вызвая общие несоответствия более 100wh*/
 }
-/*использован псевдокласс чтобы не доббавлять класс всем текстовым блокам в html
+/*использован псевдокласс чтобы не добавлять класс всем текстовым блокам в html
 при добавлении абзацев фоматиование сохранится. 
 Заголовки имеют собственне стили, которые перебивают стили для n-th child*/
 
@@ -190,8 +255,8 @@
   object-fit: cover;
 }
 
-
 .footer {
+  margin-top: calc(var(--padding) * 2);
   min-block-size: var(--min-header-heght);
   block-size: 100vh;
   display: grid;
@@ -203,8 +268,8 @@
 .special-text-sadow {
   text-shadow: 2px 2px var(--acent-special-color);
  /*отдельная переменная, цвет не меняется в других темах
- переменная вместо статичного цвета исползуется для потенциалной гибкости дизайна.
- Кроме того, тень менше, чем у подобного заголовка в хедере*/
+ переменная вместо статичного цвета используется для потенциалной гибкости дизайна.
+ Кроме того, тень элемента менше, чем у подобного заголовка в хедере*/
 }
 
 @media (width >= 768px) {
@@ -232,7 +297,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
-  /*секциии меняются на 2 колонки, одна сназванием, вторая с текстом*/
+  /*секциии меняются на 2 колонки, одна с названием, вторая с текстом*/
 
   .section-concentration-reduction {
     display: grid;
@@ -249,8 +314,6 @@
   .section-concentration-reduction .section-heading {
     grid-area: section-heading;
   }
-  
-
   /*секциия меняется на 2 строки: первая с названием, вторая со списком*/
   
   .image-container {
@@ -281,10 +344,8 @@
     grid-row: span 2;
     grid-column: span 2;
   }
-
 /*использовано dense для касивой сортиовки и nth-child для доступа к картинкам
 без создания 5-и уникалныых классов*/
-
 }
 
 @media (width >= 1024px) {
@@ -303,4 +364,5 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--padding);
   }
+  /*поменял количество колонок на 3*/
 }

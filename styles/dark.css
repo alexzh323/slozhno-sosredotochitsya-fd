@@ -6,7 +6,7 @@
 
 :root.theme-dark {
   --cover-image: url("../images/cover-image-dark.png");
-  --cover-color: rgb(2, 4, 15);
+  --cover-color: #000028;
   --card-heading-text-color: #FF0070;
   --acent-color: #FF0070;
   --acent-special-color: #FF0070;
