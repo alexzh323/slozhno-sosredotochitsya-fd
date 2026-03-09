@@ -21,7 +21,7 @@
 
 .header__theme-menu-list {
   display: grid;
-  gap: calc(var(--padding) * 2);
+  gap: calc(10px * 2);
   align-self: center;
   justify-self: end;
   padding-right: var(--padding);
@@ -120,7 +120,7 @@
   line-height: 83%;
   font-weight: bold;
   font-family: 'IBM Plex mono', monospace;
-  padding-left: var(--padding);
+  padding-left: 10px;
   letter-spacing: 0.05em;
 }
 
@@ -142,16 +142,16 @@
 
 .header__theme-menu {
   display: grid;
-  gap: var(--padding);
-  padding-right: var(--padding);
-  padding: var(--padding);
+  gap: 10px;
+  padding-right: 10px;
+  padding: 10px;
 }
 
 .title-decor-special {
   display: flex;
   flex-direction: column;
   inline-size: auto;
-  margin: 0 var(--padding) calc(var(--padding) * 4) var(--padding);
+  margin: 0 var(--padding) calc(10px * 4) var(--padding);
 }
 /*использовал флексбокс для корректного переноса
 альтернатива в виде white-space: pre-line давала пустую область навеху блока*/
@@ -171,7 +171,7 @@
 .section {
   display: grid;
   grid-auto-rows: min-content;
-  gap: calc(var(--padding) * 2);
+  gap: calc(10px* 2);
   margin: var(--padding);
 }
 
@@ -180,18 +180,18 @@
   flex-direction: column;
   list-style: none;
   padding: 0;
-  gap: var(--padding);
+  gap: 10px;
   /*!!!*/
 }
 
 .card-gap {
   display: grid;
-  gap: calc( var(--padding)*2);
+  gap: calc(10px * 2);
 }
 /*!!!*/
 
 .title-reapeated-decor {
-  margin-bottom: calc(var(--padding) *2);
+  margin-bottom: calc(10px *2);
 }
 
 /*!!!*/
@@ -279,6 +279,26 @@
   }
   /*меняем  переменные*/
 
+  .header__theme-menu-list {
+    margin-top: 30px;
+  }
+
+  .main {
+    margin-top: 40px;
+  }
+
+  .main-heading {
+    padding: 0;
+  }
+  .title-decor-special {
+  margin: 0 var(--padding) 10px var(--padding);
+  }
+
+  .section {
+    row-gap: 10px;
+    column-gap: 20px;
+  }
+
   .main-heading-container {
     grid-template-columns: min-content min-content;
     grid-template-rows: min-content;
@@ -319,7 +339,7 @@
   .image-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 20vh;
+    grid-auto-rows: 33vh;
     grid-auto-flow: dense;
   }
   .image-container :first-child {
@@ -355,8 +375,9 @@
   }
   .header__theme-menu-list {
     display: flex;
-    gap: 5vw;
-    /*Доделать отступы сверху!!!*/
+    gap: 3.5vw;
+    margin-left: 20px;
+    margin-top: 10px;
   }
 
   .card-list {
