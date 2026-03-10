@@ -8,6 +8,8 @@
   background-position: center;
   background-attachment: fixed;
   z-index: -1;
+  display: grid;
+  gap: var(--page-gap);
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
 
@@ -19,13 +21,31 @@
   position: relative;
 }
 
+.header__theme-menu {
+  display: grid;
+  padding: 10px;
+  /*ПЕРЕМЕННАЯ?*/
+}
+
 .header__theme-menu-list {
   display: grid;
-  gap: calc(10px * 2);
+  gap: 13px;
   align-self: center;
   justify-self: end;
-  padding-right: var(--padding);
 }
+
+ .header__theme-menu-button {
+  background-color: transparent;
+  color: var(--card-heading-text-color);
+  border: none;
+  text-transform: lowercase;
+  font-size: 18px;
+  padding: 2px 15px;
+ }
+
+ .header__theme-menu-button_active {
+  border: 1px solid var(--card-heading-text-color);
+ }
 
 .header__theme-menu-button:hover {
   border-bottom: 2px solid var(--card-heading-text-color);
@@ -95,16 +115,6 @@
   right: var(--padding);
  }
 
- .header__theme-menu-button {
-  background-color: transparent;
-  color: var(--card-heading-text-color);
-  border: none;
- }
-
- .header__theme-menu-button_active {
-  border: 1px solid var(--card-heading-text-color);
- }
-
 .main-heading-container {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -121,7 +131,6 @@
   font-weight: bold;
   font-family: 'IBM Plex mono', monospace;
   padding-left: 10px;
-  letter-spacing: 0.05em;
 }
 
 /*селектор задает стили и заголовку в футере. Для нюансов форматования будет особый класс*/
@@ -132,26 +141,18 @@
   display: block;
   inline-size: 100%;
   align-self: center;
-  margin: 0;
   font-family: 'IBM Plex mono', monospace;
   color: var(--acent-text-color);
   font-weight: bold;
-  letter-spacing: 0.05em;
   line-height: 23.4px;
-}
-
-.header__theme-menu {
-  display: grid;
-  gap: 10px;
-  padding-right: 10px;
-  padding: 10px;
 }
 
 .title-decor-special {
   display: flex;
   flex-direction: column;
   inline-size: auto;
-  margin: 0 var(--padding) calc(10px * 4) var(--padding);
+  margin: 20px 10px 40px var(--padding);
+  /*переменная нужна только для последнего маргина, он удвоится при асширении экрана*/
 }
 /*использовал флексбокс для корректного переноса
 альтернатива в виде white-space: pre-line давала пустую область навеху блока*/
@@ -164,15 +165,14 @@
  .main {
   padding-top: 0;
   display: grid;
-  gap: calc(var(--padding) *2);
-  
+  gap: calc(var(--padding) * 5);
  }
 
 .section {
   display: grid;
   grid-auto-rows: min-content;
   gap: calc(10px* 2);
-  margin: var(--padding);
+  margin: 0 var(--padding);
 }
 
 .card {
@@ -199,6 +199,8 @@
 .section-heading {
   color: var(--card-heading-text-color);
   font-weight: bold;
+  font-size: 18px;
+  font-family: 'IBM Plex mono', monospace;
 }
 
 .sub-title-decor {
@@ -211,9 +213,6 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 23.4px;
-  letter-spacing: 0.05em;
-  /*в фигме указан letter-spacing: 0%. Однако с данным значением текст слньно съезжает,
-  вызвая общие несоответствия более 100wh*/
 }
 /*использован псевдокласс чтобы не добавлять класс всем текстовым блокам в html
 при добавлении абзацев фоматиование сохранится. 
@@ -239,8 +238,9 @@
 
 .illustration {
   display: grid;
-  width: max(100vw,355px);
+  width: max(calc(100vw - 20px), 355px);
   grid-template-rows: repeat(autofit, minmax(355px, 1fr));
+  gap: 10px;
 }
 
 .image-container {
@@ -256,7 +256,6 @@
 }
 
 .footer {
-  margin-top: calc(var(--padding) * 2);
   min-block-size: var(--min-header-heght);
   block-size: 100vh;
   display: grid;
@@ -276,6 +275,7 @@
   :root {
     --main-heading-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     --padding: 20px;
+    --page-gap: 60px;
   }
   /*меняем  переменные*/
 
@@ -284,8 +284,9 @@
   }
 
   .main {
-    margin-top: 40px;
+    gap: calc(var(--padding) * 4);
   }
+  /*расстояние между секциями теперь 80 пиикселей вместо 50-и*/
 
   .main-heading {
     padding: 0;

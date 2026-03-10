@@ -2,7 +2,7 @@
 :root {
 /*Переменные для смены тем (темная по умочанию)*/
 --cover-image: url("../images/cover-image-dark.png");
---cover-color: rgb(2, 4, 15);
+--cover-color: #000028;
 --card-heading-text-color: #FF0070;
 --acent-color: #FF0070;
 --acent-special-color: #FF0070;
@@ -13,5 +13,6 @@
 /*Переменные разиичных экранов(mobile-frst)*/
 --min-header-heght: 668px;
 --padding: 10px;
+--page-gap: 40px;
 --main-heading-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
 }
