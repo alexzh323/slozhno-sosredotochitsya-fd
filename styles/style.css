@@ -23,7 +23,7 @@
 
 .header__theme-menu {
   display: grid;
-  padding: 10px;
+  padding: var(--padding);
   /*ПЕРЕМЕННАЯ?*/
 }
 
@@ -130,7 +130,8 @@
   line-height: 83%;
   font-weight: bold;
   font-family: 'IBM Plex mono', monospace;
-  padding-left: 10px;
+  padding-left: calc(20px - var(--padding));
+  /*нужно получить 10px на узких и 0 на шиоких экранах*/
 }
 
 /*селектор задает стили и заголовку в футере. Для нюансов форматования будет особый класс*/
@@ -151,8 +152,9 @@
   display: flex;
   flex-direction: column;
   inline-size: auto;
-  margin: 20px 10px 40px var(--padding);
-  /*переменная нужна только для последнего маргина, он удвоится при асширении экрана*/
+  margin: 20px var(--padding) calc(30px + var(--padding)) var(--padding);
+  /*второй и последний маргины удваиваются на более широких экранах, 
+  к третьему прибавляется фиксиованное количество пикселей*/
 }
 /*использовал флексбокс для корректного переноса
 альтернатива в виде white-space: pre-line давала пустую область навеху блока*/
@@ -238,14 +240,13 @@
 
 .illustration {
   display: grid;
-  width: max(calc(100vw - 20px), 355px);
-  grid-template-rows: repeat(autofit, minmax(355px, 1fr));
   gap: 10px;
 }
 
 .image-container {
   display: grid;
   gap: var(--padding);
+  place-items: center;
 }
 
 .image {
@@ -279,21 +280,10 @@
   }
   /*меняем  переменные*/
 
-  .header__theme-menu-list {
-    margin-top: 30px;
-  }
-
   .main {
     gap: calc(var(--padding) * 4);
   }
   /*расстояние между секциями теперь 80 пиикселей вместо 50-и*/
-
-  .main-heading {
-    padding: 0;
-  }
-  .title-decor-special {
-  margin: 0 var(--padding) 10px var(--padding);
-  }
 
   .section {
     row-gap: 10px;
@@ -340,7 +330,7 @@
   .image-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 33vh;
+    grid-auto-rows: 18vh;
     grid-auto-flow: dense;
   }
   .image-container :first-child {
