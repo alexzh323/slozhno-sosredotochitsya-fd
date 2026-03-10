@@ -161,11 +161,6 @@
 /*использовал флексбокс для корректного переноса
 альтернатива в виде white-space: pre-line давала пустую область навеху блока*/
 
- .main,
- .footer {
-  background-color: var(--cover-color);
- }
-
  .main {
   padding-top: 0;
   display: grid;
@@ -276,6 +271,7 @@
 
 .main,
 .footer {
+  background-color: var(--cover-color);
   margin-top: var(--page-gap);
 }
 /*хотел задать для  body gap вместо этих отступов,
@@ -381,6 +377,7 @@
     margin-left: 0;
     margin-top: 0;
   }
+  /*переместил меню наверх*/
 
   .card-list {
     display: grid;
@@ -394,15 +391,7 @@
   }
 
   .section {
-    gap: 30px;
-  }
-
-  .card {
-    gap: 10px;
-  }
-
-  .main {
-    gap: 80px;
+    column-gap: 10px;
   }
 
   .illustration {
