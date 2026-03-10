@@ -7,9 +7,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  z-index: -1;
   display: grid;
   gap: var(--page-gap);
+  z-index: -1;
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
 
@@ -24,7 +24,7 @@
 .header__theme-menu {
   display: grid;
   padding: var(--padding);
-  /*ПЕРЕМЕННАЯ?*/
+  /*Переменаая для болшего сдвига на шиоких эканах*/
 }
 
 .header__theme-menu-list {
@@ -32,6 +32,8 @@
   gap: 13px;
   align-self: center;
   justify-self: end;
+  margin-top: calc(var(--padding) - 10px);
+  /*для  узких экранов отступа нет, для широких он 10 пикселей*/
 }
 
  .header__theme-menu-button {
@@ -240,7 +242,7 @@
 
 .illustration {
   display: grid;
-  gap: 10px;
+  gap: var(--padding);
 }
 
 .image-container {
@@ -285,11 +287,11 @@
   }
   /*расстояние между секциями теперь 80 пиикселей вместо 50-и*/
 
-  .section {
+  .section:not(.illustration) {
     row-gap: 10px;
-    column-gap: 20px;
+    column-gap: 10px;
   }
-
+  
   .main-heading-container {
     grid-template-columns: min-content min-content;
     grid-template-rows: min-content;
@@ -310,8 +312,9 @@
   }
   /*секциии меняются на 2 колонки, одна с названием, вторая с текстом*/
 
-  .section-concentration-reduction {
+  .main .section-concentration-reduction {
     display: grid;
+    gap: 20px;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: min-content 1fr;
     grid-template-areas:
@@ -330,7 +333,7 @@
   .image-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 18vh;
+    grid-auto-rows: 192px 230px 110px;
     grid-auto-flow: dense;
   }
   .image-container :first-child {
@@ -366,9 +369,9 @@
   }
   .header__theme-menu-list {
     display: flex;
-    gap: 3.5vw;
-    margin-left: 20px;
-    margin-top: 10px;
+    gap: 1.7vw;
+    margin-left: 0;
+    margin-top: 0;
   }
 
   .card-list {
@@ -377,4 +380,27 @@
     gap: var(--padding);
   }
   /*поменял количество колонок на 3*/
+
+  .title-decor-special {
+    margin-bottom: 40px;
+  }
+
+  .section {
+    gap: 30px;
+  }
+
+  .card {
+    gap: 10px;
+  }
+
+  .main {
+    gap: 80px
+  }
+
+  .illustration {
+    gap: var(--padding);
+  }
+  .image-container {
+    grid-auto-rows: 260px 310px 160px;
+  } 
 }
