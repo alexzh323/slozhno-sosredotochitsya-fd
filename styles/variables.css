@@ -4,6 +4,7 @@
 --cover-image: url("../images/cover-image-dark.png");
 --cover-color: #000028;
 --card-heading-text-color: #FF0070;
+--transparent-element-color: rgb(255 0 112 / 0.4);
 --acent-color: #FF0070;
 --acent-special-color: #FF0070;
 --main-heading-font-color: #DB00FF;
@@ -15,4 +16,6 @@
 --padding: 10px;
 --page-gap: 40px;
 --main-heading-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+/*Можно лучше: добавлена переменная для основного шифта*/
+--main-font-family: 'IBM Plex mono', monospace;
 }

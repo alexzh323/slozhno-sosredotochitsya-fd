@@ -8,6 +8,7 @@
   --cover-image: url("../images/cover-image-light.png");
   --cover-color: #FFF1F7;
   --card-heading-text-color: #353430;
+  --transparent-element-color: rgba(53 52 48 / 0.4);
   --acent-color: #FF8DCB;
   --acent-special-color: #FF0070;
   --main-heading-font-color: #F1B2CE;
@@ -21,6 +22,7 @@
     --cover-image: url("../images/cover-image-light.png");
     --cover-color: #FFF1F7;
     --card-heading-text-color: #353430;
+    --transparent-element-color: rgba(53 52 48 / 0.4);
     --acent-color: #FF8DCB;
     --acent-special-color: #FF0070;
     --main-heading-font-color: #F1B2CE;

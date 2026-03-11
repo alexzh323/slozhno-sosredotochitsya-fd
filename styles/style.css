@@ -32,6 +32,8 @@
   gap: 13px;
   align-self: center;
   justify-self: end;
+  font-family: var(--main-font-family);
+  /*Надо исправить: шрифт согласно макету. Теперь шрифт задан переменной*/
   margin-top: calc(var(--padding) - 10px);
   /*для  узких экранов отступа нет, для широких он 10 пикселей*/
 }
@@ -47,10 +49,16 @@
 
  .header__theme-menu-button_active {
   border: 1px solid var(--card-heading-text-color);
+  pointer-events: none;
+  /*Можно лучше: активнй элемент не реагиует на лишние события*/
  }
 
 .header__theme-menu-button:hover {
-  border-bottom: 2px solid var(--card-heading-text-color);
+  /*Надо исправить: добавлена новая перременная для позрачнх элементов,
+  цвет конвертирован в RGB и задана прозрачность. 
+  Переменная переопеделена в глобалных пееменных и пееменнх для 2х тем,
+  включая медиа-запрос*/
+  outline: 1px solid var(--transparent-element-color);
 }
 
 .header__theme-menu-button:focus {
@@ -58,13 +66,10 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  outline: 1px solid color-mix(
-    in srgb,
-    var(--card-heading-text-color) 40%,
-    var(--main-text-font-color)
-  );
+  border-bottom: 1px solid var(--card-heading-text-color);
 }
-/*смешиваем 2 цвета в опеделенной попорции согласно макету*/
+/*Надо исправить: ширина согласно макету. У фокуса теперь нижний бордер, у хувера 
+аутлайн*/
 
 
 .decoration-span {
@@ -74,6 +79,8 @@
   right: calc(var(--padding) + 10px);
   color: var(--acent-color);
   font-size: 18px;
+  text-transform: uppercase;
+  /*Надо исправить: добавлено преоббазование текста в заглавные буквы*/
 }
 
  .decoration-span::after {
@@ -131,7 +138,7 @@
   text-shadow: 4px 4px var(--acent-color);
   line-height: 83%;
   font-weight: bold;
-  font-family: 'IBM Plex mono', monospace;
+  font-family: var(--main-font-family);
   padding-left: calc(20px - var(--padding));
   /*нужно получить 10px на узких и 0 на шиоких экранах*/
 }
@@ -144,7 +151,7 @@
   display: block;
   inline-size: 100%;
   align-self: center;
-  font-family: 'IBM Plex mono', monospace;
+  font-family: var(--main-font-family);
   color: var(--acent-text-color);
   font-weight: bold;
   line-height: 23.4px;
@@ -199,7 +206,7 @@
   color: var(--card-heading-text-color);
   font-weight: bold;
   font-size: 18px;
-  font-family: 'IBM Plex mono', monospace;
+  font-family: var(--main-font-family);
 }
 
 .sub-title-decor {
@@ -208,7 +215,7 @@
 
 .card:nth-child(n) {
   color: var(--main-text-font-color);
-  font-family: 'IBM Plex mono', monospace;
+  font-family: var(--main-font-family);
   font-size: 18px;
   font-weight: 400;
   line-height: 23.4px;
@@ -228,12 +235,14 @@
 }
 
 .link:hover {
-  border-bottom: 2px solid var(--main-text-font-color);
+  border-bottom: 1px solid var(--main-text-font-color);
 }
+/*Надо исправить: ширина согласно макету.*/
 
 .link:focus-visible {
-  outline: 2px solid var(--main-text-font-color);
+  outline: 1px solid var(--main-text-font-color);
 }
+/*Надо исправить: ширина согласно макету.*/
 
 .illustration {
   display: grid;
@@ -271,7 +280,12 @@
 
 .main,
 .footer {
-  background-color: var(--cover-color);
+  /*Надо исправить: удален ненужнй фоновй цвет. Ранее 
+  он был добавлен для соответствия макету. Теперь 
+  макет целиком покрывается фоновой катинкой. 
+  А если сделать, ее только для header, это будет потиворечить
+  рекомендациям к проекту, по которыым картинка должна 
+  растягиваться на величену page*/
   margin-top: var(--page-gap);
 }
 /*хотел задать для  body gap вместо этих отступов,

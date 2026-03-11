@@ -8,6 +8,7 @@
   --cover-image: url("../images/cover-image-dark.png");
   --cover-color: #000028;
   --card-heading-text-color: #FF0070;
+  --transparent-element-color: rgb(255 0 112 / 0.4);
   --acent-color: #FF0070;
   --acent-special-color: #FF0070;
   --main-heading-font-color: #DB00FF;
