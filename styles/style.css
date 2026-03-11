@@ -79,8 +79,10 @@
   right: calc(var(--padding) + 10px);
   color: var(--acent-color);
   font-size: 18px;
+  font-family: var(--main-font-family);
   text-transform: uppercase;
-  /*Надо исправить: добавлено преоббазование текста в заглавные буквы*/
+  /*Надо исправить: добавлено преобразование текста в заглавные буквы
+  Семейство шрифта по макету*/
 }
 
  .decoration-span::after {
@@ -97,8 +99,7 @@
  }
 /*display реализовал через переменную. Так проще будет работать со сменой тем*/
 
- .header::before,
- .footer::before {
+ .decorated-zone::before {
   position: absolute;
   content: "";
   display: inline-block;
@@ -109,10 +110,10 @@
   bottom: var(--padding);
   left: var(--padding);
  }
- /*декоративные уголки переиспользую в футере*/
+ /*Надо исправить: тепрь декоативнй элемент привязан к собственному классу
+ и его легче переиисползовать*/
 
- .header::after,
- .footer::after {
+ .decorated-zone::after {
   position: absolute;
   content: "";
   display: inline-block;
@@ -123,14 +124,8 @@
   top: var(--padding);
   right: var(--padding);
  }
-
-.main-heading-container {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  align-self: center;
-  justify-self: start;
-}
-/*сделал загоовок гридбоксом, буду менять коичество строк на широких экранах*/
+ /*Надо исправить: тепрь декоативнй элемент привязан к собственному классу
+ и его легче переиисползовать*/
 
 .main-heading {
   font-size: var(--main-heading-font-size);
@@ -141,6 +136,8 @@
   font-family: var(--main-font-family);
   padding-left: calc(20px - var(--padding));
   /*нужно получить 10px на узких и 0 на шиоких экранах*/
+  /*Надо исправить: убраны стили для лишней обертки. 
+  Теперь название - 2 слова через пробел*/
 }
 
 /*селектор задает стили и заголовку в футере. Для нюансов форматования будет особый класс*/
@@ -187,20 +184,22 @@
   list-style: none;
   padding: 0;
   gap: 10px;
-  /*!!!*/
+  color: var(--main-text-font-color);
+  font-family: var(--main-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+  /*Надо исправить: удален дублирующийся селектор, правила перемещены в 1 место.*/
 }
 
 .card-gap {
   display: grid;
   gap: calc(10px * 2);
 }
-/*!!!*/
 
 .title-reapeated-decor {
   margin-bottom: calc(10px *2);
 }
-
-/*!!!*/
 
 .section-heading {
   color: var(--card-heading-text-color);
@@ -212,17 +211,6 @@
 .sub-title-decor {
   font-weight: 400;
 }
-
-.card:nth-child(n) {
-  color: var(--main-text-font-color);
-  font-family: var(--main-font-family);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 23.4px;
-}
-/*использован псевдокласс чтобы не добавлять класс всем текстовым блокам в html
-при добавлении абзацев фоматиование сохранится. 
-Заголовки имеют собственне стили, которые перебивают стили для n-th child*/
 
 .link {
   text-decoration: none;
@@ -309,13 +297,8 @@
   .section:not(.illustration) {
     row-gap: 10px;
   }
-  
-  .main-heading-container {
-    grid-template-columns: min-content min-content;
-    grid-template-rows: min-content;
-    gap: 10vw;
-  }
-  /*заголовок в 1 строчку*/
+  /*Надо исправить: поскольку контейнер для заголовка удален, неиспользуемые стили
+  теперь тоже удалены*/
 
   .title-decor-special {
     inline-size: calc(50vw - var(--padding));
